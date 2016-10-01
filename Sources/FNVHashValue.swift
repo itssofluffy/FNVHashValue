@@ -65,26 +65,6 @@ public func fnv1a<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == UI
 
     return Int(bitPattern: hash)
 }
-
-/// Calculates FNV-1 hash from an integer type.
-public func fnv1<T: Integer>(_ value: T) -> Int {
-    return fnv1(typeToBytes(value))
-}
-
-/// Calculates FNV-1a hash from an integer type.
-public func fnv1a<T: Integer>(_ value: T) -> Int {
-    return fnv1a(typeToBytes(value))
-}
-
-/// Calculates FNV-1 hash from a floating point type.
-public func fnv1<T: FloatingPoint>(_ value: T) -> Int {
-    return fnv1(typeToBytes(value))
-}
-
-/// Calculates FNV-1a hash from a floating point type.
-public func fnv1a<T: FloatingPoint>(_ value: T) -> Int {
-    return fnv1a(typeToBytes(value))
-}
 #else
 /// Calculates FNV-1 hash from a raw byte sequence, such as an array.
 public func fnv1<S: SequenceType where S.Generator.Element == UInt8>(_ bytes: S) -> Int {
@@ -109,7 +89,29 @@ public func fnv1a<S: SequenceType where S.Generator.Element == UInt8>(_ bytes: S
 
     return Int(bitPattern: hash)
 }
+#endif
 
+#if swift(>=3.0)
+/// Calculates FNV-1 hash from an integer type.
+public func fnv1<T: Integer>(_ value: T) -> Int {
+    return fnv1(typeToBytes(value))
+}
+
+/// Calculates FNV-1a hash from an integer type.
+public func fnv1a<T: Integer>(_ value: T) -> Int {
+    return fnv1a(typeToBytes(value))
+}
+
+/// Calculates FNV-1 hash from a floating point type.
+public func fnv1<T: FloatingPoint>(_ value: T) -> Int {
+    return fnv1(typeToBytes(value))
+}
+
+/// Calculates FNV-1a hash from a floating point type.
+public func fnv1a<T: FloatingPoint>(_ value: T) -> Int {
+    return fnv1a(typeToBytes(value))
+}
+#else
 /// Calculates FNV-1 hash from an integer type.
 public func fnv1<T: IntegerType>(_ value: T) -> Int {
     return fnv1(typeToBytes(value))
