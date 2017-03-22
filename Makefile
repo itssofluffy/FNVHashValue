@@ -1,13 +1,13 @@
 all: build
 
-gyb:
-	gyb-source
-
-build: gyb
+build:
 	swift build
 
-test: gyb
+test:
 	swift test
+
+release:
+	swift build --configuration release
 
 docs:
 	swift package generate-xcodeproj
@@ -15,4 +15,4 @@ docs:
 clean:
 	swift build --clean
 
-.PHONY: build gyb test docs clean
+.PHONY: build test docs clean

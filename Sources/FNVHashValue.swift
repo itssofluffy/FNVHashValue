@@ -44,7 +44,7 @@ private struct Constants {
 /// MARK:- Public API
 
 /// Calculates FNV-1 hash from a raw byte sequence, such as an array.
-public func fnv1<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == UInt8 {
+public func fnv1<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == Byte {
     var hash = Constants.OffsetBasis
 
     for byte in bytes {
@@ -56,7 +56,7 @@ public func fnv1<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == UIn
 }
 
 /// Calculates FNV-1a hash from a raw byte sequence, such as an array.
-public func fnv1a<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == UInt8 {
+public func fnv1a<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == Byte {
     var hash = Constants.OffsetBasis
 
     for byte in bytes {
