@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2016 Stephen Whittle  All rights reserved.
+    Copyright (c) 2016, 2018 Stephen Whittle  All rights reserved.
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"),
@@ -27,21 +27,6 @@
 //  for Hashable protocols hashValue property by Steve Whittle 19th September 2016
 
 import ISFLibrary
-
-/// MARK:- Constants
-
-private struct Constants {
-    // FNV parameters
-#if arch(arm64) || arch(x86_64) // 64-bit
-    static let OffsetBasis: UInt = 14695981039346656037
-    static let FNVPrime:    UInt = 1099511628211
-#else                           // 32-bit
-    static let OffsetBasis: UInt = 2166136261
-    static let FNVPrime:    UInt = 16777619
-#endif
-}
-
-/// MARK:- Public API
 
 /// Calculates FNV-1 hash from a raw byte sequence, such as an array.
 public func fnv1<S: Sequence>(_ bytes: S) -> Int where S.Iterator.Element == Byte {
