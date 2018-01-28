@@ -1,4 +1,6 @@
 /*
+    FNVHashValue.swift
+
     Copyright (c) 2016, 2018 Stephen Whittle  All rights reserved.
 
     Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,4 +1,6 @@
 /*
+    Constants.swift
+
     Copyright (c) 2018 Stephen Whittle  All rights reserved.
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
